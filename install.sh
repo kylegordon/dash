@@ -134,3 +134,4 @@ fi
 echo "starting app"
 cd ../bin
 ./ia
+
