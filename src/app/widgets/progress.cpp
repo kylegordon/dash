@@ -4,7 +4,7 @@
 #include <QStyle>
 #include <QStyleOption>
 
-#include <app/widgets/progress.hpp>
+#include "app/widgets/progress.hpp"
 
 ProgressIndicator::ProgressIndicator(QWidget* parent) : QFrame(parent)
 {
@@ -12,7 +12,6 @@ ProgressIndicator::ProgressIndicator(QWidget* parent) : QFrame(parent)
     this->ellipse_point = BASE_ELLIPSE_POINT;
 
     this->setFocusPolicy(Qt::NoFocus);
-    this->setMinimumSize(this->sizeHint());
 
     this->pen_width = BASE_PEN_WIDTH;
 

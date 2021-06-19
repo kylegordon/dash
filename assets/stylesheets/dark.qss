@@ -1,7 +1,6 @@
 QMainWindow,
 QMainWindow > QFrame {
     background-color: rgb(18, 18, 18);
-    border-radius: 8px;
 }
 
 QWidget {
@@ -17,19 +16,17 @@ QLabel:disabled {
 }
 
 QTabWidget::pane {
-    background-color: rgba(255, 255, 255, 5);
-    border-top: 0px;
-    border-radius: 8px;
-}
-
-QTabWidget::tab-bar[tabPosition="2"] {
-    alignment: center;
+    background-color: transparent;
+    border: none;
+    border-top: 2px solid rgb(66, 66, 66);
 }
 
 QTabBar::tab {
     background-color: transparent;
     color: rgba(255, 255, 255, 179);
+    margin-top: 4px;
     padding: 4px;
+    border-bottom: 2px solid transparent;
 }
 
 QTabBar::tab:selected:top {
@@ -54,6 +51,10 @@ QSlider::groove {
     border-radius: 2px;
 }
 
+QSlider::groove[neutral="true"] {
+    background-color: rgba(224, 224, 224, 128);
+}
+
 QSlider::handle {
     background-color: palette(base);
     width: 25px;
@@ -64,10 +65,18 @@ QSlider::handle {
     border-radius: 12px;
 }
 
+QSlider::handle[neutral="true"] {
+    background-color: rgb(224, 224, 224);
+}
+
 QSlider::sub-page {
     background-color: palette(base);
     height: 5px;
     border-radius: 2px;
+}
+
+QSlider::sub-page[neutral="true"] {
+    background-color: rgb(224, 224, 224);
 }
 
 QPushButton {
@@ -86,7 +95,7 @@ QPushButton:disabled {
 }
 
 QPushButton:!flat {
-    background-color: rgba(255, 255, 255, 31);
+    background-color: rgb(50, 50, 50);
 }
 
 QPushButton:!flat:checked {
@@ -95,18 +104,18 @@ QPushButton:!flat:checked {
 }
 
 QPushButton:!flat:disabled {
-    background-color: rgba(255, 255, 255, 13);
+    background-color: rgb(33, 33, 33);
 }
 
 QFrame[frameShape="4"][frameShadow="16"],
 QFrame[frameShape="5"][frameShadow="16"] {
-    color: rgba(255, 255, 255, 31);
+    color: rgba(255, 255, 255, 66);
 }
 
 QListWidget {
-    background-color: rgba(255, 255, 255, 10);
+    background-color: rgb(46, 46, 46); 
     color: rgb(255, 255, 255);
-    border: none;
+    border: 2px solid rgb(66, 66, 66);
 }
 
 QListView {
@@ -142,6 +151,10 @@ QRadioButton {
     background-color: transparent;
 }
 
+QRadioButton:disabled {
+    color: rgb(136, 136, 136);
+}
+
 QCheckBox::indicator {
     width: 22px;
     height: 22px;
@@ -156,6 +169,10 @@ QRadioButton::indicator {
     border-radius: 11px;
 }
 
+QRadioButton::indicator:disabled {
+    border: 2px solid rgb(136, 136, 136);
+}
+
 QCheckBox::indicator::checked {
     image: url(:/icons/dark/check.svg);
     background-color: palette(base);
@@ -165,6 +182,11 @@ QCheckBox::indicator::checked {
 QRadioButton::indicator::checked {
     background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.5, fy:0.5, radius:.4, stop:.65 palette(base), stop:.75 transparent);
     border: 2px solid palette(base);
+}
+
+QRadioButton::indicator::checked:disabled {
+    background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.5, fy:0.5, radius:.4, stop:.65 rgb(136, 136, 136), stop:.75 transparent);
+    border: 2px solid rgb(136, 136, 136);
 }
 
 QScrollArea {
@@ -181,12 +203,14 @@ QScrollBar {
 }
 
 QScrollBar:vertical {
-    width: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 16px;
 }
 
 QScrollBar::handle {
     background-color: rgba(255, 255, 255, 31);
-    border-radius: 3px;
+    border-radius: 8px;
 }
 
 QScrollBar::add-line {
@@ -205,12 +229,12 @@ QLineEdit {
     border: none;
     padding: 12px;
     color: rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 10);
-    border-bottom: 1px solid rgba(255, 255, 255, 136);
+    background-color: rgb(25, 25, 25);
+    border-bottom: 1px solid rgb(66, 66, 66);
 }
 
 QLineEdit:focus {
-    background-color: rgba(255, 255, 255,20);
+    background-color: rgb(29, 29, 29);
     border-bottom: 2px solid palette(base);
 }
 
@@ -221,31 +245,46 @@ Switch {
 
 Tuner {
     qproperty-color: rgb(224, 224, 224);
-    padding-left: 16px;
-    padding-right: 16px;
+    qproperty-accent: palette(base);
 }
 
 Tuner::groove {
-    background-color: rgb(224, 224, 224);
+    background-color: none;
 }
 
 Tuner::handle {
-    width: 6px;
-    margin-top: -32px;
-    margin-bottom: -32px;
-    border-radius: 3px;
+    background-color: none;
+    width: 0px;
+    height: 0px;
 }
 
 Tuner::sub-page {
-    background-color: rgb(224, 224, 224);
+    background-color: none;
+}
+
+StepMeter {
+    qproperty-base_color: palette(alternate-base);
+    qproperty-bar_color: palette(base);
+}
+
+ClimateState {
+    qproperty-color: rgb(228, 228, 228);
 }
 
 QDialog,
 QDialog > QFrame {
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(56, 56, 56);
     border-radius: 8px;
+    border: 2px solid rgb(66, 66, 66);
+}
+
+#ControlBar {
+    background-color: rgb(48, 48, 48);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 *[add_hint="true"] {
-    background-color: rgba(255, 255, 255, 8);
+    background-color: rgba(255, 255, 255, 31);
+    border-radius: 8px;
 }
